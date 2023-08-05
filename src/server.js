@@ -1,8 +1,10 @@
 const app = require("./app")
-const port = process.env.PORT || 5000
+const connectDB = require("./config/db")
+const { port } = require("./secret")
 
 
 
-app.listen(port, () => {
+app.listen(port, async () => {
   console.log(`Example app listening on port ${port}`)
+  await connectDB()
 })
